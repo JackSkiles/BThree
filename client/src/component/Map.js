@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { location } from './redux/actions'
 import { connect } from 'react-redux'
+import axios from 'axios'
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
 class Map extends Component {
@@ -17,13 +18,17 @@ class Map extends Component {
           if (navigator && navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((pos) => {
               const coords = pos.coords;
-              this.props.location(coords)
+            //   this.props.location(coords)
               this.setState({
                 currentLocation: {
                   lat: coords.latitude,
                   lng: coords.longitude,
                 },
               });
+              axios.put('/api/v1/user', {
+                lat: coords.latitude,
+                lng: coords.longitude
+            })
             });
           }
       }
@@ -50,15 +55,17 @@ ConnectedMap.defaultProps = {
     mapElement: <div style={{ height: `100%` }} />,
 }
 
-const mapStateToProps = (state) => {
-    return {
-        latitude: state.latitude,
-        longitude: state.longitude
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         latitude: state.latitude,
+//         longitude: state.longitude
+//     }
+// }
 
-const mapDispatchToProps = {
-    location
-}
+// const mapDispatchToProps = {
+//     location
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConnectedMap);
+// export default connect(mapStateToProps, mapDispatchToProps)(ConnectedMap);
+
+export default ConnectedMap;
