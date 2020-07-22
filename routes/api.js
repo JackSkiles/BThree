@@ -185,7 +185,7 @@ router.get('/messages', (req, res) => {
             const formattedMessages = messages.map(message => {
                 return {
                     authorId: message.SenderId,
-                    author: message.Sender.firstName,
+                    author: message.Sender.userName,
                     message: message.content,
                     time: message.createdAt
                 }
