@@ -108,7 +108,7 @@ class Register extends Component {
 
                     <Button className="btn btn-primary btn-block" onSubmit={this.handleFormSubmit} type="submit"> Sign Up</Button>
                 </form>
-                <p className="forgot-password text-right" style={registerColor} style={{ padding: '20px'}}>
+                <p className="forgot-password text-right" style={registerColor}>
                 Already registered? <Link to={'/login'}>Sign in</Link>
                 </p>
                 {/* end of registration form */}

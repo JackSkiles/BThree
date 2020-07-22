@@ -36,7 +36,7 @@ export default class Popup extends Component {
         render() {
             return (
                 <div>
-                    <div className={"modal fade" + (this.state.modalState ? " show d-block" : " d-none")} tabIndex="-1" role="dialog" style={{ margin: '275px auto' }} show={this.state.seenModal}>
+                    <div className={"modal fade" + (this.state.modalState ? " show d-block" : " d-none")} tabIndex="-1" role="dialog" style={{ margin: '265px auto' }} show={this.state.sawModal}>
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">

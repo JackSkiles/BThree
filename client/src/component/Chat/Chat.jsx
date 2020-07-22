@@ -19,7 +19,7 @@ export default class Chat extends Component {
             name: "",
         };
 
-        this.socket = io("localhost:3001");
+        this.socket = io();
     }
 
     componentDidMount() {
