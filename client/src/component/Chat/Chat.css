@@ -10,12 +10,11 @@
 
 .container {
     background-color: white;
-    width: 100vw;
+    width: 100%;
     height: 74vh;
     margin: 40px auto;
     border-radius: 8px;
     display: flex;
-    /* display: row; */
     overflow-y: scroll; 
     font-family: "Bungee";
     display: flex;
@@ -25,27 +24,27 @@
 
 .messages {
     margin: 20px auto;
-    /* margin-top: 235px; */
     width: 100%;
-    height: 55vh;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     border-radius: 10px;
     text-align: left;
-    padding: 15px; 
+    padding: 5px; 
+    /* border: 1px solid black */
     
 }
 
 .chat-input {
-    width: 75%;
+    width: 65%;
     border-radius: 10px;
     margin: 1px auto 
     
 }
 
 Button {
-    padding: 5px;
+    padding: 2px;
 } 
 
 h2{  

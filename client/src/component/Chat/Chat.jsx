@@ -4,6 +4,8 @@ import './Chat.css';
 import SendIcon from '@material-ui/icons/Send';
 import moment from 'moment'
 import { Redirect } from 'react-router-dom'
+import { Accordion, Card, Button, Modal } from 'react-bootstrap'
+import Popup from './Popup'
 
 moment().format()
 
@@ -72,43 +74,45 @@ export default class Chat extends Component {
     render() {
         return (
             <div className='container'>
+                <Popup />
                 {this.state.Redirect ? <Redirect to='/login' /> : (
                     <div className="messages">
-                        <h2 style={{textAlign: 'center'}}>What's Going On? </h2>
-                        {this.state.messages.map((message, index) => {
-                            return (
+                        <h2 style={{ textAlign: 'center' }}>What's Going On? </h2>
 
-                                <div className="message" key={index}>
-                                    <span style={{ fontWeight: 'bold', color: "red", fontSize: "20px" }}> {message.author}: </span>
-                                    <span style={{ fontSize: "20px" }}> {message.message} </span> <br />
-                                    <span style={{ fontSize: "10px", fontFamily: "Bungee" }}> {moment(message.time).format('MMMM Do YYYY, h:mm:ss a')} </span>
+                            {this.state.messages.map((message, index) => {
+                                return (
 
-                                    <hr className="horizontalRule" />
-                                </div>
-                            );
-                        })}
-                        <div>
+                                    <div className="message" key={index}>
+                                        <span style={{ fontWeight: 'bold', color: "red", fontSize: "20px" }}> {message.author}: </span>
+                                        <span style={{ fontSize: "20px" }}> {message.message} </span> <br />
+                                        <span style={{ fontSize: "10px", fontFamily: "Bungee" }}> {moment(message.time).format('MMMM Do YYYY, h:mm:ss a')} </span>
 
-                            <form>
-                                <input className='chat-input'
-                                    type="text"
-                                    placeholder="Send Message"
-                                    value={this.state.message}
-                                    onChange={(e) =>
-                                        this.setState({
-                                            message: e.target.value,
-                                        })
-                                    }
-                                />
-                                <SendIcon
-                                    type='button'
-                                    variant="outline-secondary"
-                                    onClick={this.sendMessage}>Send </SendIcon>
-                            </form>
-                        </div>
+                                        <hr className="horizontalRule" />
+                                    </div>
+                                );
+                            })}
+                            <div>
+
+                                <form>
+                                    <input className='chat-input'
+                                        type="text"
+                                        placeholder="Send Message"
+                                        value={this.state.message}
+                                        onChange={(e) =>
+                                            this.setState({
+                                                message: e.target.value,
+                                            })
+                                        }
+                                    />
+                                    <SendIcon
+                                        type='button'
+                                        variant="outline-secondary"
+                                        onClick={this.sendMessage}>Send </SendIcon>
+                                </form>
+                            </div>
                     </div>
                 )}
-            </div>
-        );
+                    </div>
+                );
     }
 }
